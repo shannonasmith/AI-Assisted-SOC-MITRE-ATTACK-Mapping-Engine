@@ -1,1 +1,1 @@
-# AI-Assisted-SOC-MITRE-ATT-CK-Mapping-Engine
+# AI-Assisted-SOC-MITRE-ATT&CK-Mapping-Engine
