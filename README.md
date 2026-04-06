@@ -17,14 +17,6 @@
 
 ---
 
-<div align="center">
-  <img src="https://www.hypr.com/hubfs/MITREAttack_Framework_V2.jpg" width="700">
-</div>
-
-<p align="center"><em>Figure 2. MITRE ATT&CK framework used as the foundation for mapping detection behavior to adversary techniques.</em></p>
-
----
-
 ## 🧠 Scenario
 
 This project simulates how a **Security Operations Center (SOC)** translates raw telemetry into meaningful threat intelligence.
