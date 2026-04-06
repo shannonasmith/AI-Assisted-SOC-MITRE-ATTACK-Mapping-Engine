@@ -1,0 +1,201 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 103/103 [00:00<00:00, 4006.84it/s]
+BertModel LOAD REPORT from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+======================================================================
+ALERT ID: A-1001
+SEVERITY: medium
+TRIAGE SCORE: 20
+QUERY USED: event_type authentication_failure details multiple failed login attempts detected. possible brute force against administrator account. target_user admin source_ip 192.168.1.10
+
+TOP MATCHES:
+  T1110 - Brute Force
+    TF-IDF Score: 1.0000
+    Embedding Score: 0.9976
+    Rule Score: 0.9000
+    Field Match Score: 0.0000
+    Final Score: 0.8889
+    Confidence: 88.89%
+    Tactics: ['credential-access']
+    Explanation: TF-IDF similarity=1.000 | Embedding similarity=0.998 | Brute-force style authentication behavior matched ATT&CK content
+  T1110.001 - Password Guessing
+    TF-IDF Score: 0.4558
+    Embedding Score: 0.8761
+    Rule Score: 0.9000
+    Field Match Score: 0.0000
+    Final Score: 0.6438
+    Confidence: 64.38%
+    Tactics: ['credential-access']
+    Explanation: TF-IDF similarity=0.456 | Embedding similarity=0.876 | Brute-force style authentication behavior matched ATT&CK content
+  T1201 - Password Policy Discovery
+    TF-IDF Score: 0.4576
+    Embedding Score: 0.8291
+    Rule Score: 0.9000
+    Field Match Score: 0.0000
+    Final Score: 0.6233
+    Confidence: 62.33%
+    Tactics: ['discovery']
+    Explanation: TF-IDF similarity=0.458 | Embedding similarity=0.829 | Brute-force style authentication behavior matched ATT&CK content
+  T1621 - Multi-Factor Authentication Request Generation
+    TF-IDF Score: 0.2955
+    Embedding Score: 1.0000
+    Rule Score: 0.0000
+    Field Match Score: 0.0000
+    Final Score: 0.5534
+    Confidence: 55.34%
+    Tactics: ['credential-access']
+    Explanation: TF-IDF similarity=0.295 | Embedding similarity=1.000
+  T1110.003 - Password Spraying
+    TF-IDF Score: 0.3313
+    Embedding Score: 0.9683
+    Rule Score: 0.0000
+    Field Match Score: 0.0000
+    Final Score: 0.5517
+    Confidence: 55.17%
+    Tactics: ['credential-access']
+    Explanation: TF-IDF similarity=0.331 | Embedding similarity=0.968
+
+RECOMMENDED ACTIONS:
+  - Review account lockouts and authentication telemetry
+  - Reset or rotate impacted credentials
+  - Check for suspicious authentication success after repeated failures
+  - Review host and account enumeration activity
+  - Determine whether the behavior aligns with expected admin activity
+
+======================================================================
+ALERT ID: A-1002
+SEVERITY: medium
+TRIAGE SCORE: 25
+QUERY USED: event_type process_execution details encoded powershell command executed from a workstation. command_line powershell -encodedcommand sqbfafgaiaaoae4azqb3ac0atwbiagoazqbjahqaiaboaguadaauafcazqbiaemababpaguabgb0acka process_name powershell.exe
+
+TOP MATCHES:
+  T1059.001 - PowerShell
+    TF-IDF Score: 1.0000
+    Embedding Score: 1.0000
+    Rule Score: 1.0000
+    Field Match Score: 0.6000
+    Final Score: 0.9600
+    Confidence: 96.0%
+    Tactics: ['execution']
+    Explanation: TF-IDF similarity=1.000 | Embedding similarity=1.000 | PowerShell execution indicators aligned with ATT&CK technique text | Encoded command execution boosted execution-related techniques | Observed process matched technique corpus
+  T1546.013 - PowerShell Profile
+    TF-IDF Score: 0.9082
+    Embedding Score: 0.8369
+    Rule Score: 1.0000
+    Field Match Score: 0.6000
+    Final Score: 0.8544
+    Confidence: 85.44%
+    Tactics: ['privilege-escalation', 'persistence']
+    Explanation: TF-IDF similarity=0.908 | Embedding similarity=0.837 | PowerShell execution indicators aligned with ATT&CK technique text | Encoded command execution boosted execution-related techniques | Observed process matched technique corpus
+  T1216.002 - SyncAppvPublishingServer
+    TF-IDF Score: 0.3892
+    Embedding Score: 0.7010
+    Rule Score: 1.0000
+    Field Match Score: 0.6000
+    Final Score: 0.6117
+    Confidence: 61.17%
+    Tactics: ['defense-evasion']
+    Explanation: TF-IDF similarity=0.389 | Embedding similarity=0.701 | PowerShell execution indicators aligned with ATT&CK technique text | Encoded command execution boosted execution-related techniques | Observed process matched technique corpus
+  T1552.003 - Shell History
+    TF-IDF Score: 0.2796
+    Embedding Score: 0.7665
+    Rule Score: 1.0000
+    Field Match Score: 0.6000
+    Final Score: 0.6028
+    Confidence: 60.28%
+    Tactics: ['credential-access']
+    Explanation: TF-IDF similarity=0.280 | Embedding similarity=0.766 | PowerShell execution indicators aligned with ATT&CK technique text | Encoded command execution boosted execution-related techniques | Observed process matched technique corpus
+  T1070.001 - Clear Windows Event Logs
+    TF-IDF Score: 0.2408
+    Embedding Score: 0.7838
+    Rule Score: 1.0000
+    Field Match Score: 0.6000
+    Final Score: 0.5970
+    Confidence: 59.7%
+    Tactics: ['defense-evasion']
+    Explanation: TF-IDF similarity=0.241 | Embedding similarity=0.784 | PowerShell execution indicators aligned with ATT&CK technique text | Encoded command execution boosted execution-related techniques | Observed process matched technique corpus
+
+RECOMMENDED ACTIONS:
+  - Isolate affected host if malicious execution is confirmed
+  - Collect process tree, command-line, and parent-child telemetry
+  - Review script block logs, PowerShell logs, or EDR execution traces
+  - Review scheduled tasks, services, autoruns, and startup locations
+  - Hunt for newly created accounts or remote management changes
+  - Review account lockouts and authentication telemetry
+  - Reset or rotate impacted credentials
+  - Check for suspicious authentication success after repeated failures
+
+======================================================================
+ALERT ID: A-1003
+SEVERITY: medium
+TRIAGE SCORE: 25
+QUERY USED: event_type remote_execution details possible remote service execution using psexec. process_name psexec.exe username corp\jdoe destination_ip 10.0.0.25
+
+TOP MATCHES:
+  T1569.002 - Service Execution
+    TF-IDF Score: 1.0000
+    Embedding Score: 1.0000
+    Rule Score: 0.0000
+    Field Match Score: 0.0000
+    Final Score: 0.8000
+    Confidence: 80.0%
+    Tactics: ['execution']
+    Explanation: TF-IDF similarity=1.000 | Embedding similarity=1.000
+  T1563 - Remote Service Session Hijacking
+    TF-IDF Score: 0.6158
+    Embedding Score: 0.6180
+    Rule Score: 0.8500
+    Field Match Score: 0.0000
+    Final Score: 0.5786
+    Confidence: 57.86%
+    Tactics: ['lateral-movement']
+    Explanation: TF-IDF similarity=0.616 | Embedding similarity=0.618 | Remote execution indicators boosted lateral movement techniques
+  T1021 - Remote Services
+    TF-IDF Score: 0.3221
+    Embedding Score: 0.5978
+    Rule Score: 0.8500
+    Field Match Score: 0.0000
+    Final Score: 0.4668
+    Confidence: 46.68%
+    Tactics: ['lateral-movement']
+    Explanation: TF-IDF similarity=0.322 | Embedding similarity=0.598 | Remote execution indicators boosted lateral movement techniques
+  T1036.003 - Rename Legitimate Utilities
+    TF-IDF Score: 0.6459
+    Embedding Score: 0.5144
+    Rule Score: 0.0000
+    Field Match Score: 0.0000
+    Final Score: 0.4575
+    Confidence: 45.75%
+    Tactics: ['defense-evasion']
+    Explanation: TF-IDF similarity=0.646 | Embedding similarity=0.514
+  T1133 - External Remote Services
+    TF-IDF Score: 0.3320
+    Embedding Score: 0.5594
+    Rule Score: 0.8500
+    Field Match Score: 0.0000
+    Final Score: 0.4529
+    Confidence: 45.29%
+    Tactics: ['persistence', 'initial-access']
+    Explanation: TF-IDF similarity=0.332 | Embedding similarity=0.559 | Remote execution indicators boosted lateral movement techniques
+
+RECOMMENDED ACTIONS:
+  - Isolate affected host if malicious execution is confirmed
+  - Collect process tree, command-line, and parent-child telemetry
+  - Review script block logs, PowerShell logs, or EDR execution traces
+  - Check remote service creation, SMB, WinRM, RDP, WMI, and PsExec activity
+  - Review east-west traffic and admin share access
+  - Scope additional hosts touched by the same account or source system
+  - Review scheduled tasks, services, autoruns, and startup locations
+  - Hunt for newly created accounts or remote management changes
+
+======================================================================
+[+] Results written to: output/mapped_alerts.json
+[+] Coverage summary written to: output/coverage_summary.json
+[+] ATT&CK Navigator layer written to: output/attack_navigator.json
+                                                                                                                                                                                               
