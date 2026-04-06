@@ -1,253 +1,349 @@
-# 🛡️ AI-Assisted SOC + MITRE ATT&CK Mapping Engine
+<div align="center">
 
-## 🚀 Overview
+## 🛡️ AI-Assisted SOC + MITRE ATT&CK Mapping Engine  
+### Detection Engineering, ATT&CK Mapping & AI-Assisted Analysis
 
-This project is a **production-style cybersecurity pipeline** that ingests security telemetry, normalizes events, and maps them to **MITRE ATT&CK techniques** using a hybrid AI-driven scoring system.
+![Category](https://img.shields.io/badge/Category-Detection%20Engineering-red?style=for-the-badge)
+![Focus](https://img.shields.io/badge/Focus-ATT%26CK%20Mapping-blue?style=for-the-badge)
+![Tech](https://img.shields.io/badge/Tech-AI%20%2B%20SOC%20Pipeline-black?style=for-the-badge)
 
-It simulates how a modern SOC can leverage **AI-assisted analysis, behavioral logic, and explainable scoring** to accelerate detection and triage.
-
----
-
-## 🎯 Key Capabilities
-
-* 🔍 **Multi-source ingestion**
-
-  * Zeek (network telemetry)
-  * Splunk-style alerts
-
-* 🔄 **Normalized alert pipeline**
-
-  * Converts raw logs into a unified schema
-  * Ensures consistent downstream analysis
-
-* 🧠 **Hybrid ATT&CK mapping engine**
-
-  * TF-IDF retrieval
-  * Embedding-based semantic similarity (Sentence Transformers)
-  * Rule-based scoring
-  * Field-aware enrichment
-  * Behavior-based overrides
-
-* 📊 **Explainable detection results**
-
-  * Ranked ATT&CK techniques
-  * Confidence scoring
-  * Human-readable reasoning
-
-* 🧪 **Evaluation framework**
-
-  * Top-1 / Top-3 / Top-5 accuracy tracking
-
-* 🗺️ **ATT&CK Navigator export**
-
-  * Visualize detection coverage
+</div>
 
 ---
 
-## 🧠 Why This Project Exists
+<div align="center">
+  <img src="images/07-analysis-output-files.png" width="600">
+</div>
 
-Traditional detection pipelines often struggle with:
-
-* False positives (e.g., login pages misclassified as web shells)
-* Weak context awareness
-* Lack of explainability
-* Static rule-based logic
-
-This system addresses those gaps by combining:
-
-> **Retrieval + Semantic Understanding + Behavioral Context**
+<p align="center"><em>Figure 1. Final ATT&CK mapping output showing ranked techniques, confidence, and explainable reasoning.</em></p>
 
 ---
 
-## 🏗️ Architecture
+## 🧠 Scenario
 
-```text
-Logs (Zeek / Splunk)
-        ↓
-Ingestion Pipeline
-        ↓
-Normalization Layer
-        ↓
-AI Mapping Engine
-  ├── TF-IDF Retrieval
-  ├── Embedding Reranking
-  ├── Rule-Based Scoring
-  ├── Behavior Overrides
-        ↓
-Ranked ATT&CK Techniques
-        ↓
-Explainable Output + Navigator Export
-```
+This project simulates how a **Security Operations Center (SOC)** translates raw telemetry into meaningful threat intelligence.
+
+Rather than relying on static rules, this system demonstrates how detection engineering can combine:
+
+- structured pipelines  
+- behavioral logic  
+- semantic analysis  
+- ATT&CK alignment  
+
+to produce **context-aware, explainable detections**.
 
 ---
 
-## ⚙️ How It Works
+## 🎯 Objective
 
-### 1. Ingestion
+The goal of this project was to design a system that moves from:
+
+    Raw Logs (Zeek / Splunk)
+    ↓
+    Normalized Alerts
+    ↓
+    ATT&CK Mapping
+    ↓
+    Analyst-Readable Output
+
+while solving key real-world problems such as:
+
+- inconsistent log formats  
+- weak detection context  
+- false positives  
+- lack of explainability  
+
+---
+
+## 🚨 Detection Problem (Engineering Perspective)
+
+In real SOC environments:
+
+- logs are noisy and inconsistent  
+- SIEM data (e.g., Splunk alerts) often lacks deep context  
+- rule-based detections are rigid and difficult to scale  
+- ATT&CK mapping is frequently manual  
+
+One critical realization during development:
+
+> If the correct ATT&CK technique is not retrieved, no amount of scoring can fix it.
+
+This insight shaped the architecture of the system.
+
+---
+
+## 🖥️ Environment
+
+| Tool | Purpose |
+|---|---|
+| Python | Pipeline + mapping engine |
+| Zeek | Network telemetry |
+| Splunk | SIEM-style alert source |
+| Sentence Transformers | Semantic similarity |
+| TF-IDF | Retrieval layer |
+| MITRE ATT&CK | Technique mapping |
+
+---
+
+# ⚙️ Step 1 — System Structure & Pipeline Design
+
+<div align="center">
+  <img src="images/01-project-structure.png" width="600">
+</div>
+
+<p align="center"><em>Figure 2. Project structure showing separation between ingestion, normalization, and mapping layers.</em></p>
+
+The system was designed as a modular pipeline:
+
+- ingestion layer (Zeek + Splunk adapters)  
+- normalization layer  
+- mapping engine  
+
+This separation allowed each component to be tested and debugged independently.
+
+---
+
+# 📚 Step 2 — ATT&CK Data Preparation
+
+<div align="center">
+  <img src="images/02-attack-corpus-source.png" width="600">
+</div>
+
+<p align="center"><em>Figure 3. MITRE ATT&CK data prepared as a searchable corpus.</em></p>
+
+ATT&CK data was transformed into a structured dataset to support:
+
+- retrieval  
+- semantic comparison  
+- scoring  
+
+---
+
+# 🔍 Step 3 — Candidate Retrieval (TF-IDF)
+
+<div align="center">
+  <img src="images/03-tfidf-retrieval-test.png" width="600">
+</div>
+
+<p align="center"><em>Figure 4. TF-IDF retrieval used to generate initial ATT&CK technique candidates.</em></p>
+
+TF-IDF was used to narrow down possible techniques.
+
+At this stage, an important limitation appeared:
+
+- relevant techniques were sometimes not retrieved  
+- SIEM-style alerts (Splunk) often lacked enough keywords for accurate matching  
+
+---
+
+# 🧠 Step 4 — Hybrid Scoring Engine
+
+<div align="center">
+  <img src="images/04-scoring-logic.png" width="600">
+</div>
+
+<p align="center"><em>Figure 5. Hybrid scoring engine combining multiple detection signals.</em></p>
+
+To improve accuracy, a multi-layer scoring system was introduced:
+
+- keyword relevance (TF-IDF)  
+- semantic similarity (embeddings)  
+- rule-based logic  
+- behavior-based overrides  
+
+This allowed the system to approximate how an analyst evaluates alerts.
+
+---
+
+# 🌐 Step 5 — Multi-Source Ingestion (Zeek + Splunk)
+
+<div align="center">
+  <img src="images/05-zeek-ingestion-success.png" width="600">
+</div>
+
+<p align="center"><em>Figure 6. Successful ingestion of Zeek logs into the pipeline.</em></p>
+
+The pipeline was extended to support multiple telemetry sources:
+
+### Zeek (Network Telemetry)
+- connection logs (`conn.log`)  
+- HTTP logs (`http.log`)  
+
+### Splunk-Style Alerts
+- normalized SIEM detections  
+- structured alert fields (source, destination, event context)  
+
+Key challenges included:
+
+- parsing inconsistencies  
+- aligning different schemas  
+- ensuring both sources map to the same normalized format  
+
+---
+
+# 🔄 Step 6 — Normalization Pipeline
+
+<div align="center">
+  <img src="images/06-normalized-zeek-alerts-preview.png" width="600">
+</div>
+
+<p align="center"><em>Figure 7. Normalized alert output ensuring consistent structure across data sources.</em></p>
+
+All telemetry was transformed into a unified schema.
+
+This step is critical because:
+
+> Without normalization, cross-source analysis and correlation are unreliable.
+
+---
+
+# ⚙️ Step 7 — ATT&CK Mapping Execution
+
+<div align="center">
+  <img src="images/07-analysis-output-files.png" width="600">
+</div>
+
+<p align="center"><em>Figure 8. Generated ATT&CK mappings with ranked techniques and explanations.</em></p>
+
+The pipeline produces:
+
+- ranked ATT&CK techniques  
+- confidence scores  
+- explanation of mapping logic  
+
+---
+
+# 🧪 Step 8 — Detection Validation
+
+## 🔹 Web Shell Detection
+
+<div align="center">
+  <img src="images/08-web-shell-detection-result.png" width="600">
+</div>
+
+<p align="center"><em>Figure 9. Upload behavior correctly mapped to T1505.003 (Web Shell).</em></p>
+
+The system correctly identifies:
+
+- malicious upload behavior  
+- server-side execution indicators  
+
+---
+
+## 🔹 Payload Transfer Detection
+
+Behavior-aware logic ensures:
+
+- `T1105 — Ingress Tool Transfer` is included  
+- even when retrieval alone is insufficient  
+
+---
+
+## 🔹 False Positive Reduction
+
+Key improvements:
+
+- login traffic is not misclassified as web shell  
+- generic HTTP activity does not dominate results  
+
+---
+
+# 🧠 Key Engineering Insights
+
+### Retrieval vs Scoring
+
+The most important lesson:
+
+> Retrieval determines what is possible — scoring determines what is likely.
+
+---
+
+### False Positives Matter More Than Accuracy
+
+Reducing incorrect classifications had a greater impact than improving ranking precision.
+
+---
+
+### Real Systems Require Iteration
+
+This project involved:
+
+- pipeline debugging  
+- schema mismatches  
+- ingestion issues (Zeek + Splunk)  
+- environment troubleshooting  
+
+All of which reflect real-world engineering challenges.
+
+---
+
+# ⚙️ How to Use This Project
+
+### 1. Ingest Logs
 
 ```bash
 python -m pipeline.ingest_logs --source zeek --path data/sample/
 ```
 
-* Parses Zeek logs (`conn.log`, `http.log`)
-* Normalizes into a unified alert schema
-
----
-
-### 2. Analysis & Mapping
+### 2. Run Analysis
 
 ```bash
 python -m pipeline.analyze_alerts --input output/normalized_zeek_alerts.json
 ```
 
-* Maps alerts to ATT&CK techniques
-* Produces ranked results with explanations
+### 3. Review Output
+
+- ATT&CK technique mappings  
+- confidence scores  
+- explanation of results  
 
 ---
 
-### 3. Output Example
+## 💡 What This Project Demonstrates
 
-```json
-{
-  "technique_id": "T1505.003",
-  "name": "Web Shell",
-  "confidence": 100.0,
-  "explanation": [
-    "Upload behavior aligned with web shell placement",
-    "Server-side script indicator",
-    "Scripted upload activity"
-  ]
-}
-```
+- detection engineering workflows  
+- ATT&CK mapping logic  
+- SOC-style triage pipelines  
+- AI-assisted analysis techniques  
+- multi-source ingestion (Zeek + Splunk)  
+- real-world debugging and iteration  
 
 ---
 
-## 🧠 Core Design Decisions
+# 💼 SOC Relevance
 
-### 1. Hybrid Scoring Model
+This system simulates:
 
-Rather than relying on a single method:
+- SIEM-driven alert analysis (Splunk)  
+- network telemetry analysis (Zeek)  
+- ATT&CK classification  
+- analyst reasoning workflows  
 
-* TF-IDF → keyword relevance
-* Embeddings → semantic similarity
-* Rules → domain knowledge
-* Behavior overrides → real-world context
+It can be extended into:
 
----
-
-### 2. Behavior-Aware Overrides
-
-Key insight:
-
-> If retrieval misses the correct technique, scoring cannot fix it.
-
-Solution:
-
-* Inject behavior-driven candidates
-* Prioritize critical techniques like:
-
-  * `T1505.003` (Web Shell)
-  * `T1105` (Ingress Tool Transfer)
+- SOAR playbooks  
+- automated response systems  
+- AI-driven SOC tooling  
 
 ---
 
-### 3. False Positive Reduction
+# 🚧 Future Work
 
-Example:
-
-* Login page traffic is **not** classified as web shell
-* Generic HTTP traffic does not dominate mappings
-
----
-
-## 🧪 Sample Scenarios Covered
-
-* SMB lateral movement → `T1021.002`
-* RDP activity → `T1021.001`
-* Web shell upload → `T1505.003`
-* Exploitation of public-facing app → `T1190`
-* Payload download → `T1105`
+- AI-SOAR response engine  
+- threat intelligence enrichment  
+- SIEM/XDR API integration  
+- detection benchmarking  
 
 ---
 
-## 📂 Project Structure
+<div align="center">
 
-```text
-app/
-  services/
-    mapper.py
+## 👤 Shannon Smith  
 
-pipeline/
-  ingest_logs.py
-  analyze_alerts.py
+Cybersecurity | Detection Engineering • SOC Operations • AI-Assisted Security  
 
-data/
-  sample/
+🧠 Structured analysis  
+🔍 Engineering-driven detection  
+🛡️ Real-world SOC simulation  
 
-output/
-  sample/
-
-requirements.txt
-```
-
----
-
-## 🔐 Security & Hardening Considerations
-
-This project incorporates:
-
-* Input normalization and schema consistency
-* Behavior-based detection to reduce false positives
-* Controlled scoring to prevent dominance from noisy signals
-* Separation of ingestion, processing, and output layers
-
-Future improvements include:
-
-* Schema validation (Pydantic)
-* Config-driven scoring
-* CI/CD + regression testing
-* API-based SIEM/SOAR integration
-
----
-
-## 🚧 Future Enhancements
-
-* 🔗 SOAR integration (automated response playbooks)
-* 🤖 AI-assisted incident response engine
-* 📡 Threat intelligence enrichment
-* 🧪 Detection quality benchmarking
-* 🐳 Dockerized deployment
-
----
-
-## 💼 Relevance to Security Operations
-
-This project demonstrates:
-
-* SOC pipeline design
-* MITRE ATT&CK mapping
-* Detection engineering
-* AI-assisted analysis
-* Python-based security automation
-* Troubleshooting and system debugging under real constraints
-
----
-
-## 🧠 Key Takeaway
-
-This is not a static script — it is a **modular detection system** designed to simulate how modern SOCs can:
-
-* Reduce analyst workload
-* Improve detection accuracy
-* Provide explainable security insights
-
----
-
-## 👤 Author
-
-**Shannon Smith**
-Cybersecurity | Threat Detection | AI-Assisted Security
-
-GitHub: https://github.com/shannonasmith
-
----
+</div>
