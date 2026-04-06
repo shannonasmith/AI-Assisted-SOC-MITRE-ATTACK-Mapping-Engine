@@ -1,0 +1,41 @@
+[
+  {
+    "alert_id": "splunk-1",
+    "event_type": "authentication_failure",
+    "log_source": "splunk",
+    "source_ip": "192.168.1.50",
+    "destination_ip": "10.0.0.10",
+    "username": "admin",
+    "process_name": "",
+    "command_line": "",
+    "details": "Multiple failed logins detected | Splunk detection: Excessive Failed Logins",
+    "severity": "high",
+    "raw_time": "2026-04-05T19:10:00Z"
+  },
+  {
+    "alert_id": "splunk-2",
+    "event_type": "process_execution",
+    "log_source": "splunk",
+    "source_ip": "10.0.0.20",
+    "destination_ip": "10.0.0.20",
+    "username": "corp\\jdoe",
+    "process_name": "powershell.exe",
+    "command_line": "powershell -EncodedCommand SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkA",
+    "details": "Encoded PowerShell command observed | Splunk detection: Encoded PowerShell Execution",
+    "severity": "critical",
+    "raw_time": "2026-04-05T19:15:00Z"
+  },
+  {
+    "alert_id": "splunk-3",
+    "event_type": "remote_execution",
+    "log_source": "splunk",
+    "source_ip": "10.0.0.30",
+    "destination_ip": "10.0.0.25",
+    "username": "corp\\jdoe",
+    "process_name": "psexec.exe",
+    "command_line": "",
+    "details": "Remote service execution using PsExec | Splunk detection: PsExec Remote Service Execution",
+    "severity": "high",
+    "raw_time": "2026-04-05T19:20:00Z"
+  }
+]
