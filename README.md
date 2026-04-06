@@ -9,13 +9,19 @@
 
 </div>
 
+<div align="center">
+  <img src="images/demo.gif" width="700">
+</div>
+
+<p align="center"><em>Figure 1. End-to-end pipeline demonstration: ingestion → normalization → ATT&CK mapping.</em></p>
+
 ---
 
 <div align="center">
   <img src="https://www.hypr.com/hubfs/MITREAttack_Framework_V2.jpg" width="700">
 </div>
 
-<p align="center"><em>Figure 1. MITRE ATT&CK framework used as the foundation for mapping detection behavior to adversary techniques.</em></p>
+<p align="center"><em>Figure 2. MITRE ATT&CK framework used as the foundation for mapping detection behavior to adversary techniques.</em></p>
 
 ---
 
