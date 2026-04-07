@@ -36,13 +36,15 @@ to produce **context-aware, explainable detections**.
 
 The goal of this project was to design a system that moves from:
 
-    Raw Logs (Zeek / Splunk)
+```text
+Raw Logs (Zeek / Splunk)
     ↓
-    Normalized Alerts
+Normalized Alerts
     ↓
-    ATT&CK Mapping
+ATT&CK Mapping
     ↓
-    Analyst-Readable Output
+Analyst-Readable Output
+```
 
 while solving key real-world problems such as:
 
