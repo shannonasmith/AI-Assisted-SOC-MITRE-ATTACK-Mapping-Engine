@@ -186,7 +186,7 @@ Coverage Reporting (Navigator Export)
 ## 🧠 Step 4 — Behavior-Based Scoring Engine
 
 <div align="center">
-  <img src="images/04-scoring-logic.png" width="600">
+  <img src="images/04-scoring-logic2.png" width="600">
 </div>
 
 <p align="center"><em>Rule-based scoring layer that boosts or penalizes ATT&CK techniques based on observed behavior patterns.</em></p>
