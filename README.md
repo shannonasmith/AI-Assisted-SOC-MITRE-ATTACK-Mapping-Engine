@@ -179,13 +179,17 @@ Coverage Reporting (Navigator Export)
   <img src="images/03-tfidf-retrieval-test.png" width="600">
 </div>
 
+<p align="center"><em>TF-IDF retrieval layer used to identify candidate ATT&CK techniques before semantic reranking and behavioral scoring.</em></p>
+
 ---
 
-## 🧠 Step 4 — Hybrid Scoring Engine
+## 🧠 Step 4 — Behavior-Based Scoring Engine
 
 <div align="center">
   <img src="images/04-scoring-logic.png" width="600">
 </div>
+
+<p align="center"><em>Rule-based scoring layer that boosts or penalizes ATT&CK techniques based on observed behavior patterns.</em></p>
 
 ---
 
