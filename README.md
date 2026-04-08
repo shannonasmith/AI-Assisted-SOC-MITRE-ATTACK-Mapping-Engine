@@ -226,18 +226,96 @@ Reducing incorrect classifications had a greater impact than improving ranking p
 
 ---
 
-## ⚙️ How to Use This Project
+## ⚙️ How to Use This Project (Quick Start)
 
-### 1. Ingest Logs
+These steps assume you downloaded the ZIP from GitHub, extracted it in your Kali Linux VM, and opened a terminal in the project folder.
+
+---
+
+### 1. Open the project folder
 
 ```bash
-python -m pipeline.ingest_logs --source zeek --path data/sample/
+cd ~/AI-Assisted-SOC-MITRE-ATTACK-Mapping-Engine-main
 ```
 
-### 2. Run Analysis
+---
+
+### 2. Create and activate a virtual environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+### 3. Install dependencies
+
+```bash
+pip install --upgrade pip
+pip install numpy scikit-learn sentence-transformers joblib python-dateutil
+```
+
+---
+
+### 4. Download required MITRE ATT&CK data
+
+This project requires the ATT&CK Enterprise dataset file:
+
+```text
+data/raw/enterprise-attack.json
+```
+
+Download it with:
+
+```bash
+mkdir -p data/raw
+curl -L "https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/enterprise-attack.json" -o data/raw/enterprise-attack.json
+```
+
+---
+
+### 5. Ingest logs
+
+```bash
+python -m pipeline.ingest_logs --source zeek --path data/zeek/
+```
+
+---
+
+### 6. Run analysis
 
 ```bash
 python -m pipeline.analyze_alerts --input output/normalized_zeek_alerts.json
+```
+
+---
+
+### 7. Review outputs
+
+```text
+output/mapped_alerts.json
+output/coverage_summary.json
+output/attack_navigator.json
+```
+
+These include:
+
+- ATT&CK technique mappings  
+- coverage summaries  
+- ATT&CK Navigator export  
+
+---
+
+## ⚠️ Troubleshooting
+
+### Issue: `No space left on device`
+If pip fails during install:
+
+```bash
+mkdir -p ~/bigtemp
+export TMPDIR=~/bigtemp
+pip install numpy scikit-learn sentence-transformers joblib python-dateutil
 ```
 
 ---
