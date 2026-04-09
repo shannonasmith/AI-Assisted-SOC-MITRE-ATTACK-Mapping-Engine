@@ -158,10 +158,10 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
   <img src="images/zeek-ingestion-success.png" width="700">
 </div>
 
-### 📥 Input
+### 🔍 Processing
 
 - raw telemetry is collected from Zeek or SIEM sources  
-- logs are prepared for downstream processing  
+- logs are prepared for normalization 
 
 ---
 
@@ -171,10 +171,10 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
   <img src="images/normalized-output.png" width="700">
 </div>
 
-### ⚙️ Transformation
+### 🧠 Observations
 
-- logs are converted into structured alert formats  
-- key fields (IP, ports, timestamps) are extracted 
+- raw logs vary in structure and format  
+- normalization enables consistent downstream analysis  
 
 ---
 
@@ -184,10 +184,10 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
   <img src="images/tfidf-retrieval-test.png" width="700">
 </div>
 
-### 🧠 Observations
+### 📊 Output Includes
 
-- candidate ATT&CK techniques are identified via TF-IDF  
-- prioritizes coverage over precision
+- initial set of candidate ATT&CK techniques  
+- broad coverage of possible behaviors  
 
 ---
 
@@ -197,10 +197,10 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
   <img src="images/scoring-logic.png" width="700">
 </div>
 
-### ⚖️ Decision Logic
+### 🔎 Findings
 
-- scoring adjusts confidence using behavioral rules  
-- hybrid approach improves detection accuracy  
+- scoring refines candidate techniques based on behavior  
+- improves confidence and reduces false positives   
 
 ---
 
@@ -210,11 +210,10 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
   <img src="images/attack-mapping-output.png" width="700">
 </div>
 
-### 📊 Output
+### 🧠 Insight
 
-- ranked ATT&CK techniques  
-- confidence scores  
-- explainable detection results  
+- combining statistical and rule-based logic improves detection accuracy  
+- structured classification enables reliable investigation workflows  
 
 ---
 
