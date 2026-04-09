@@ -58,11 +58,11 @@ The goal of this phase is to demonstrate:
 ## 🧩 Key Capabilities
 
 - normalization pipeline  
-- TF-IDF candidate retrieval  
+- candidate retrieval (TF-IDF)  
 - embedding-based reranking  
 - hybrid scoring engine  
 - ATT&CK technique ranking  
-- explainable detection outputs  
+- explainable detection outputs   
 
 ---
 
@@ -71,16 +71,6 @@ The goal of this phase is to demonstrate:
 ```text
 Alert Parsing → Classification → Investigation → Decision
 ```
-
----
-
-## 🧠 System Role
-
-This repository builds on earlier and later phases:
-
-- Phase 1 → establishes alert understanding  
-- Phase 2 → improves detection accuracy  
-- Phase 3 → enables reasoning and decision-making  
 
 ---
 
