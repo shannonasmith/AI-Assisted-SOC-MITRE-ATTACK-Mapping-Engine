@@ -173,7 +173,7 @@ The following steps show how raw telemetry is transformed into structured ATT&CK
 ### 🌐 Step 1 — Multi-Source Ingestion
 
 <div align="center">
-  <img src="images/05-zeek-ingestion-success.png" width="600">
+  <img src="images/zeek-ingestion-success.png" width="600">
 </div>
 
 ---
@@ -181,7 +181,7 @@ The following steps show how raw telemetry is transformed into structured ATT&CK
 ### 🔄 Step 2 — Normalization Pipeline
 
 <div align="center">
-  <img src="images/11-normalized-output.png" width="700">
+  <img src="images/normalized-output.png" width="700">
 </div>
 
 ---
@@ -189,7 +189,7 @@ The following steps show how raw telemetry is transformed into structured ATT&CK
 ### 🔍 Step 3 — Candidate Retrieval (TF-IDF)
 
 <div align="center">
-  <img src="images/03-tfidf-retrieval-test.png" width="600">
+  <img src="images/tfidf-retrieval-test.png" width="600">
 </div>
 
 ---
@@ -197,7 +197,7 @@ The following steps show how raw telemetry is transformed into structured ATT&CK
 ### 🧠 Step 4 — Behavior-Based Scoring Engine
 
 <div align="center">
-  <img src="images/04-scoring-logic2.png" width="600">
+  <img src="images/scoring-logic.png" width="600">
 </div>
 
 ---
@@ -205,7 +205,7 @@ The following steps show how raw telemetry is transformed into structured ATT&CK
 ### ⚙️ Step 5 — ATT&CK Mapping Output
 
 <div align="center">
-  <img src="images/10-attack-mapping-output.png" width="700">
+  <img src="images/attack-mapping-output.png" width="700">
 </div>
 
 ---
