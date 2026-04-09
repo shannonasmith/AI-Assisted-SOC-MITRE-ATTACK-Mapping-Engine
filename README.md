@@ -166,6 +166,11 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
   <img src="images/zeek-ingestion-success.png" width="700">
 </div>
 
+### 📥 Input
+
+- raw telemetry is collected from Zeek or SIEM sources  
+- logs are prepared for downstream processing  
+
 ---
 
 ### 🔄 Step 2 — Normalization Pipeline
@@ -173,6 +178,11 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
 <div align="center">
   <img src="images/normalized-output.png" width="700">
 </div>
+
+### ⚙️ Transformation
+
+- logs are converted into structured alert formats  
+- key fields (IP, ports, timestamps) are extracted 
 
 ---
 
@@ -182,6 +192,11 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
   <img src="images/tfidf-retrieval-test.png" width="700">
 </div>
 
+### 🧠 Observations
+
+- candidate ATT&CK techniques are identified via TF-IDF  
+- prioritizes coverage over precisi 
+
 ---
 
 ### 🧠 Step 4 — Behavior-Based Scoring Engine
@@ -190,6 +205,11 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
   <img src="images/scoring-logic.png" width="700">
 </div>
 
+### ⚖️ Decision Logic
+
+- scoring adjusts confidence using behavioral rules  
+- hybrid approach improves detection accuracy  
+
 ---
 
 ### ⚙️ Step 5 — ATT&CK Mapping Output
@@ -197,6 +217,12 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
 <div align="center">
   <img src="images/attack-mapping-output.png" width="700">
 </div>
+
+### 📊 Output
+
+- ranked ATT&CK techniques  
+- confidence scores  
+- explainable detection results  
 
 ---
 
