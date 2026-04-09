@@ -195,7 +195,7 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
 ### 🧠 Observations
 
 - candidate ATT&CK techniques are identified via TF-IDF  
-- prioritizes coverage over precisi 
+- prioritizes coverage over precision
 
 ---
 
