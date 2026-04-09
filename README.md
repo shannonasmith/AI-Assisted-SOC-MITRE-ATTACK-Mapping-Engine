@@ -20,7 +20,7 @@
 
 ## 🧠 Purpose
 
-This project represents the **detection engineering stage** of a progressively evolving SOC system.
+This project represents the **detection engineering stage** of an evolving SOC system.
 
 | Stage | Description |
 |------|------------|
@@ -100,7 +100,7 @@ This repository builds on earlier and later phases:
 
 ## ⚡ Quick Start (Run the Project)
 
-Run the detection pipeline locally.
+Run the detection pipeline locally using the included sample Zeek data.
 
 ### 1. Clone the repository
 
@@ -124,7 +124,7 @@ source venv/bin/activate
 
 ```bash
 pip install --upgrade pip
-pip install numpy scikit-learn sentence-transformers joblib python-dateutil
+pip install -r requirements.txt
 ```
 
 ---
@@ -138,7 +138,7 @@ curl -L "https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/en
 
 ---
 
-### 5. Ingest logs
+### 5. Ingest sample Zeek logs
 
 ```bash
 python -m pipeline.ingest_logs --source zeek --path data/zeek/
@@ -166,7 +166,7 @@ output/attack_navigator.json
 
 ## 👀 What This Looks Like in Practice
 
-The following steps show how raw telemetry is transformed into structured ATT&CK-aligned detections.
+This walkthrough demonstrates how raw telemetry is transformed into structured ATT&CK-aligned detections through layered processing and scoring.
 
 ---
 
@@ -250,6 +250,14 @@ Simulates:
 - ATT&CK classification  
 - detection engineering pipelines  
 - analyst-facing outputs  
+
+---
+
+## 🧬 Project Progression
+
+This project is part of a **multi-phase SOC system**:
+
+[SOC Alert Analyzer](https://github.com/shannonasmith/AI-Assisted-SOC-Alert-Analyzer) → **ATT&CK Mapping Engine (current)** → [Agentic SOC Investigation Engine](https://github.com/shannonasmith/Agentic-SOC-Investigation-Engine) 
 
 ---
 
