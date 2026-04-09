@@ -163,7 +163,7 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
 ### 🌐 Step 1 — Multi-Source Ingestion
 
 <div align="center">
-  <img src="images/zeek-ingestion-success.png" width="600">
+  <img src="images/zeek-ingestion-success.png" width="700">
 </div>
 
 ---
@@ -179,7 +179,7 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
 ### 🔍 Step 3 — Candidate Retrieval (TF-IDF)
 
 <div align="center">
-  <img src="images/tfidf-retrieval-test.png" width="600">
+  <img src="images/tfidf-retrieval-test.png" width="700">
 </div>
 
 ---
@@ -187,7 +187,7 @@ This walkthrough demonstrates how raw telemetry is transformed into structured A
 ### 🧠 Step 4 — Behavior-Based Scoring Engine
 
 <div align="center">
-  <img src="images/scoring-logic.png" width="600">
+  <img src="images/scoring-logic.png" width="700">
 </div>
 
 ---
